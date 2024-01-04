@@ -2,6 +2,7 @@ package ac.bracu.abdullaharif.mymaps
 
 import ac.bracu.abdullaharif.mymaps.models.Place
 import ac.bracu.abdullaharif.mymaps.models.UserMap
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,13 +15,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val userMaps = generateSampleData()
-        // layout manager for recyclerView
-
         rvMaps = findViewById(R.id.rvMaps)
+
+        // layout manager for recyclerView
         rvMaps.layoutManager = LinearLayoutManager(this)
-        rvMaps.adapter = MapsAdapter(this, userMaps)
 
         // adapter on recyclerView
+        rvMaps.adapter = MapsAdapter(this, userMaps, object: MapsAdapter.OnClickListener {
+            override fun onItemClick(position: Int) {
+                // When tap on view in RV, navigate to an activity
+                val intent = Intent(this@MainActivity, DisplayMapActivity::class.java)
+                startActivity(intent)
+            }
+
+        })
 
     }
     private fun generateSampleData(): List<UserMap> {

@@ -8,7 +8,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MapsAdapter(val context: Context, val userMaps: List<UserMap>) : RecyclerView.Adapter<MapsAdapter.ViewHolder>() {
+class MapsAdapter(val context: Context, val userMaps: List<UserMap>, val onClickListener: OnClickListener) : RecyclerView.Adapter<MapsAdapter.ViewHolder>() {
+
+    interface OnClickListener {
+        fun onItemClick(position: Int)
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -20,6 +24,9 @@ class MapsAdapter(val context: Context, val userMaps: List<UserMap>) : RecyclerV
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val userMap = userMaps[position]
+        holder.itemView.setOnClickListener{
+            onClickListener.onItemClick(position)
+        }
         val textViewTitle = holder.itemView.findViewById<TextView>(android.R.id.text1)
         textViewTitle.text = userMap.title
     }
