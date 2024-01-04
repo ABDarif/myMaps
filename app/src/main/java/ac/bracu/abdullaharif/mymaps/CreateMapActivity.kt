@@ -16,7 +16,9 @@ import android.view.LayoutInflater
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.model.Marker
+import com.google.android.material.snackbar.Snackbar
 
 class CreateMapActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -34,6 +36,13 @@ class CreateMapActivity : AppCompatActivity(), OnMapReadyCallback {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        mapFragment.view?.let {
+            Snackbar.make(it, "Long Press to add a marker!", Snackbar.LENGTH_INDEFINITE)
+                .setAction("OK") {}
+                .setActionTextColor(ContextCompat.getColor(this, android.R.color.white))
+                .show()
+        }
     }
 
     /**
