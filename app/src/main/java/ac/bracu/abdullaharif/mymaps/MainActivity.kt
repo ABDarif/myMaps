@@ -2,14 +2,19 @@ package ac.bracu.abdullaharif.mymaps
 
 import ac.bracu.abdullaharif.mymaps.models.Place
 import ac.bracu.abdullaharif.mymaps.models.UserMap
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 lateinit var rvMaps: RecyclerView
+lateinit var fabCreateMap: FloatingActionButton
 const val EXTRA_USER_MAP = "EXTRA_USER_MAP"
+const val EXTRA_MAP_TITLE = "EXTRA_MAP_TITLE"
+const val REQUEST_CODE = 1234
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         val userMaps = generateSampleData()
         rvMaps = findViewById(R.id.rvMaps)
+        fabCreateMap = findViewById(R.id.fabCreateMap)
 
         // layout manager for recyclerView
         rvMaps.layoutManager = LinearLayoutManager(this)
@@ -31,7 +37,18 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+        fabCreateMap.setOnClickListener {
+            val intent = Intent(this@MainActivity, CreateMapActivity::class.java)
+            intent.putExtra(EXTRA_MAP_TITLE, "new map name")
+            startActivityForResult(intent, REQUEST_CODE)
+        }
+    }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            // GET NEW MAP
+        }
+        super.onActivityResult(requestCode, resultCode, data)
     }
     private fun generateSampleData(): List<UserMap> {
         return listOf(
