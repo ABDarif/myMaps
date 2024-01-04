@@ -13,12 +13,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val userMap = generateSampleData()
+        val userMaps = generateSampleData()
         // layout manager for recyclerView
 
         rvMaps = findViewById(R.id.rvMaps)
         rvMaps.layoutManager = LinearLayoutManager(this)
-        rvMaps.adapter = MapsAdapter(this, userMap)
+        rvMaps.adapter = MapsAdapter(this, userMaps)
 
         // adapter on recyclerView
 
