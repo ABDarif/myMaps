@@ -10,10 +10,18 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import ac.bracu.abdullaharif.mymaps.databinding.ActivityCreateMapBinding
+import android.content.DialogInterface
+import android.icu.text.CaseMap.Title
+import android.view.LayoutInflater
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import com.google.android.gms.maps.model.Marker
 
 class CreateMapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
+    private var markers: MutableList<Marker> = mutableListOf()
     private lateinit var binding: ActivityCreateMapBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,9 +48,49 @@ class CreateMapActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
+        mMap.setOnInfoWindowClickListener { markerToDelete ->
+
+            // Delete from "markers" list
+            markers.remove(markerToDelete)
+
+            // Delete from the map
+            markerToDelete.remove()
+        }
+
+        mMap.setOnMapLongClickListener { latLng ->
+            showAlertDialog(latLng)
+
+        }
+
         // Add a marker in Sydney and move the camera
         val sydney = LatLng(-34.0, 151.0)
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+    }
+
+    private fun showAlertDialog(latLng: LatLng) {
+        val placeFormView = LayoutInflater.from(this).inflate(R.layout.dialog_create_place, null)
+        val dialog =
+            AlertDialog.Builder(this)
+            .setTitle("Create a Marker")
+            .setView(placeFormView)
+            .setNegativeButton("Cancel", null)
+            .setPositiveButton("Ok", null)
+            .show()
+
+        dialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener {
+            val title = placeFormView.findViewById<EditText>(R.id.etTitle).text.toString()
+            val description = placeFormView.findViewById<EditText>(R.id.etDescription).text.toString()
+            if (title.trim().isEmpty() || description.trim().isEmpty()) {
+                Toast.makeText(this, "Place must have non-empty title & description", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+            val marker = mMap.addMarker(MarkerOptions().position(latLng).title(title).snippet(description))
+            if (marker != null) {
+                markers.add(marker)
+            }
+            dialog.dismiss()
+        }
+
     }
 }
