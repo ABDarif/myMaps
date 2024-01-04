@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 lateinit var rvMaps: RecyclerView
+const val EXTRA_USER_MAP = "EXTRA_USER_MAP"
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
             override fun onItemClick(position: Int) {
                 // When tap on view in RV, navigate to an activity
                 val intent = Intent(this@MainActivity, DisplayMapActivity::class.java)
+                intent.putExtra(EXTRA_USER_MAP, userMaps[position])
                 startActivity(intent)
             }
 
