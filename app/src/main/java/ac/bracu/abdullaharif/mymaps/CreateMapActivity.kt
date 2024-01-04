@@ -10,9 +10,14 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import ac.bracu.abdullaharif.mymaps.databinding.ActivityCreateMapBinding
+import ac.bracu.abdullaharif.mymaps.models.Place
+import ac.bracu.abdullaharif.mymaps.models.UserMap
+import android.app.Activity
 import android.content.DialogInterface
-import android.icu.text.CaseMap.Title
+import android.content.Intent
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -45,6 +50,29 @@ class CreateMapActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_create_map, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Check if "item" is the save button or not
+        if (item.itemId == R.id.miSave) {
+            if (markers.isEmpty()) {
+                Toast.makeText(this, "There must be at least one marker", Toast.LENGTH_LONG).show()
+                return true
+            }
+            val places = markers.map { marker -> marker.title?.let { marker.snippet?.let { it1 -> Place(it, it1, marker.position.latitude, marker.position.longitude) } } }
+            val userMap = intent.getStringExtra(EXTRA_MAP_TITLE)?.let { UserMap(it, places) }
+            val data = Intent()
+            data.putExtra(EXTRA_USER_MAP, userMap)
+            setResult(Activity.RESULT_OK, data)
+            finish()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -72,9 +100,8 @@ class CreateMapActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        val dhaka = LatLng(23.8041, 90.4152)
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(dhaka, 10f))
     }
 
     private fun showAlertDialog(latLng: LatLng) {
