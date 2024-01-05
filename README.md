@@ -28,19 +28,16 @@ The following **POSSIBLE extensions** are **YET-TO-BE** implemented:
 
 Here's a walkthrough of implemented user stories:
 
-# Accessing existing maps:
+### Accessing existing maps:
 
 <img src='https://im7.ezgif.com/tmp/ezgif-7-a69853884a.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-# Creating New Maps:
 
 <img src='https://im2.ezgif.com/tmp/ezgif-2-1f88b94a63.gif' title='Video Walkthrough2' width='' alt='Video Walkthrough2' />
 
-# Deleting Pointers from the Maps:
 
 <img src='https://im2.ezgif.com/tmp/ezgif-2-5e673c433a.gif' title='Video Walkthrough3' width='' alt='Video Walkthrough3' />
 
-# Storing Maps in Local Storage:
 
 <img src='https://im2.ezgif.com/tmp/ezgif-2-f9863762ee.gif' title='Video Walkthrough4' width='' alt='Video Walkthrough4' />
 
