@@ -26,7 +26,7 @@ The following **POSSIBLE extensions** are **YET-TO-BE** implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough of implemented functionalities:
 
 <img src='https://im2.ezgif.com/tmp/ezgif-2-3baab468f5.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
