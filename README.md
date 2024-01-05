@@ -26,11 +26,11 @@ The following **POSSIBLE extensions** are **YET-TO-BE** implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented functionalities:
+Here's a walkthrough of implemented user stories:
 
-<img src='https://im2.ezgif.com/tmp/ezgif-2-3baab468f5.gif' title='Video Walkthrough' width='50' alt='Video Walkthrough' height="50"/>
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with [ezgif](https://ezgif.com/maker).
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
