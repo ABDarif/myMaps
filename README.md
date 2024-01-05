@@ -28,7 +28,7 @@ The following **POSSIBLE extensions** are **YET-TO-BE** implemented:
 
 Here's a walkthrough of implemented functionalities:
 
-<img src='https://im2.ezgif.com/tmp/ezgif-2-3baab468f5.gif' title='Video Walkthrough' width='50' alt='Video Walkthrough' height="50"/>
+<img src='https://im2.ezgif.com/tmp/ezgif-2-3baab468f5.gif![img.png](img.png)' title='Video Walkthrough' width='50' alt='Video Walkthrough' height="50"/>
 
 GIF created with [ezgif](https://ezgif.com/maker).
 
