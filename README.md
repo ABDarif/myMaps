@@ -28,7 +28,7 @@ The following **POSSIBLE extensions** are **YET-TO-BE** implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://im7.ezgif.com/tmp/ezgif-7-a69853884a.gif' width='50%' height='50%' />
+<img src='https://im7.ezgif.com/tmp/ezgif-7-a69853884a.gif' width='20%' height='20%' />
 
 
 <img src='https://im2.ezgif.com/tmp/ezgif-2-1f88b94a63.gif' title='Video Walkthrough2' width='' alt='Video Walkthrough2' />
