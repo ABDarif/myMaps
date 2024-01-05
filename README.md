@@ -28,16 +28,7 @@ The following **POSSIBLE extensions** are **YET-TO-BE** implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://im7.ezgif.com/tmp/ezgif-7-a69853884a.gif' width='30%' height='30%' />
-
-
-<img src='https://im2.ezgif.com/tmp/ezgif-2-1f88b94a63.gif' title='Video Walkthrough2' width='' alt='Video Walkthrough2' />
-
-
-<img src='https://im2.ezgif.com/tmp/ezgif-2-5e673c433a.gif' title='Video Walkthrough3' width='' alt='Video Walkthrough3' />
-
-
-<img src='https://im2.ezgif.com/tmp/ezgif-2-f9863762ee.gif' title='Video Walkthrough4' width='' alt='Video Walkthrough4' />
+<img src='https://im2.ezgif.com/tmp/ezgif-2-3baab468f5.gif' title='Video Walkthrough4' width='' alt='Video Walkthrough4' />
 
 GIF created with [ezgif](https://ezgif.com/maker).
 
