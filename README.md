@@ -14,18 +14,37 @@ The following **required** functionality is completed:
 * [x] After tapping on a map title, the associated markers in the map are shown.
 * [x] The user is able to create a new map.
 
-The following **extensions** are **YET-TO-BE** implemented:
+The following **POSSIBLE extensions** are **YET-TO-BE** implemented:
 
 * [ ] When a map marker is created, the pin is animated.
-* [ ] List anything else that you did to improve the app functionality or design!
+* [ ] In the initial screen, show the number of places in each map along with the title.
+* [ ] Instead of the default marker, use a custom marker drawable
+* [ ] Add a menu option in the map activity to change the map type (e.g. normal vs terrain)
+* [ ] In the creation flow, add a button where the map will move to the user’s current location.
+* [ ] Add the ability to search for maps which contain a string in the title
+* [ ] Instead of storing the maps in a file, store them in a Room database
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+Accessing existing maps:
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+<img src='https://im7.ezgif.com/tmp/ezgif-7-a69853884a.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+Creating New Maps:
+
+<img src='https://im2.ezgif.com/tmp/ezgif-2-1f88b94a63.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+Deleting Pointers from the Maps:
+
+<img src='https://im2.ezgif.com/tmp/ezgif-2-5e673c433a.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+Getting Stored in Local Storage:
+
+<img src='https://im2.ezgif.com/tmp/ezgif-2-f9863762ee.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [ezgif](https://ezgif.com/maker).
 
 ## Notes
 
