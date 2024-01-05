@@ -34,15 +34,15 @@ Accessing existing maps:
 
 Creating New Maps:
 
-<img src='https://im2.ezgif.com/tmp/ezgif-2-1f88b94a63.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://im2.ezgif.com/tmp/ezgif-2-1f88b94a63.gif' title='Video Walkthrough2' width='' alt='Video Walkthrough2' />
 
 Deleting Pointers from the Maps:
 
-<img src='https://im2.ezgif.com/tmp/ezgif-2-5e673c433a.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://im2.ezgif.com/tmp/ezgif-2-5e673c433a.gif' title='Video Walkthrough3' width='' alt='Video Walkthrough3' />
 
 Getting Stored in Local Storage:
 
-<img src='https://im2.ezgif.com/tmp/ezgif-2-f9863762ee.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://im2.ezgif.com/tmp/ezgif-2-f9863762ee.gif' title='Video Walkthrough4' width='' alt='Video Walkthrough4' />
 
 GIF created with [ezgif](https://ezgif.com/maker).
 
