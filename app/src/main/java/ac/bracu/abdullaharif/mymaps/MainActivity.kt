@@ -3,6 +3,7 @@ package ac.bracu.abdullaharif.mymaps
 import ac.bracu.abdullaharif.mymaps.models.Place
 import ac.bracu.abdullaharif.mymaps.models.UserMap
 import android.app.Activity
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -14,11 +15,17 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.io.ObjectInputStream
+import java.io.ObjectOutputStream
 
 lateinit var rvMaps: RecyclerView
 lateinit var fabCreateMap: FloatingActionButton
 const val EXTRA_USER_MAP = "EXTRA_USER_MAP"
 const val EXTRA_MAP_TITLE = "EXTRA_MAP_TITLE"
+const val FILENAME = "UserMaps.data"
 const val REQUEST_CODE = 1234
 class MainActivity : AppCompatActivity() {
 
@@ -28,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        userMaps = generateSampleData().toMutableList()
+        userMaps = deserializeUserMaps(this).toMutableList()
         rvMaps = findViewById(R.id.rvMaps)
         fabCreateMap = findViewById(R.id.fabCreateMap)
 
@@ -82,8 +89,24 @@ class MainActivity : AppCompatActivity() {
             val userMap = data?.getSerializableExtra(EXTRA_USER_MAP) as UserMap
             userMaps.add(userMap)
             mapAdapter.notifyItemInserted(userMaps.size-1)
+            serializeUserMaps(this, userMaps)
         }
         super.onActivityResult(requestCode, resultCode, data)
+    }
+    private fun serializeUserMaps(context: Context, userMaps: List<UserMap>) {
+        ObjectOutputStream(FileOutputStream(getDataFile(context))).use { it.writeObject(userMaps) }
+    }
+
+    private fun deserializeUserMaps(context: Context) : List<UserMap> {
+        val dataFile = getDataFile(context)
+        if (!dataFile.exists()) {
+            return emptyList()
+        }
+        ObjectInputStream(FileInputStream(dataFile)).use { return it.readObject() as List<UserMap>}
+    }
+
+    private fun getDataFile(context: Context) : File {
+        return File(context.filesDir, FILENAME)
     }
     private fun generateSampleData(): List<UserMap> {
         return listOf(
