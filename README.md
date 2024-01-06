@@ -30,7 +30,7 @@ Here's a walkthrough of implemented user stories:
 
 <img src='https://im2.ezgif.com/tmp/ezgif-2-48fc05427c.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+GIF created with [ezgif](https://ezgif.com/maker).
 
 ## Notes
 
